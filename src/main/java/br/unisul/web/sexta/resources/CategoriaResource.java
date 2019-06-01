@@ -23,6 +23,12 @@ public class CategoriaResource {
 
 	@Autowired
 	private CategoriaService service;
+	
+	
+	// FAZER UM METO PARA FILTRAR POR NOME
+	
+	
+	
 
 	// BUSCAR POR ID
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -65,4 +71,19 @@ public class CategoriaResource {
 			
 			return ResponseEntity.ok().body(listDto);
 		}
+		
+		// LISTAR POR NOME
+		
+		  @RequestMapping(value = "/filtro/{nome}", method = RequestMethod.GET)
+		  public ResponseEntity<List<CategoriaDto>> get(@PathVariable String nome) {
+		 
+		  List<Categoria> lista = service.listarPorNome(nome);
+		  
+		 List<CategoriaDto> listDto = new ArrayList<CategoriaDto>();
+		  
+		  for (Categoria c : lista) { listDto.add(new CategoriaDto(c)); }
+		  
+		  return ResponseEntity.ok().body(listDto); 
+		  }
+	 
 }

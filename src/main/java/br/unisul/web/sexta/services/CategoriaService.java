@@ -22,6 +22,16 @@ public class CategoriaService {
 		return obj.orElse(null);
 	}
 	
+	
+	
+	//CRIAR METODO DE BUCAR POR NOME
+	
+	// BUSCA POR NOME
+		public List<Categoria> listarPorNome(String nome) {
+			return rep.findByNomeContaining(nome);
+		}
+	
+	
 
 	// FAZ INSERÇÃO
 	public Categoria insert(Categoria obj) {

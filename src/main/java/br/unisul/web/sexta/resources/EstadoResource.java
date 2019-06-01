@@ -22,7 +22,7 @@ import br.unisul.web.sexta.services.CidadeService;
 import br.unisul.web.sexta.services.EstadoService;
 
 @RestController
-@RequestMapping(value = "/estado")
+@RequestMapping(value = "/estados")
 public class EstadoResource {
 
 	@Autowired
